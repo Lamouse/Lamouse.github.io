@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>LAmouse的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+  <meta name="description" content="正在爬坑">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LAmouse的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="LAmouse的博客">
+<meta property="og:description" content="正在爬坑">
+<meta property="og:locale" content="zh">
+<meta property="article:author" content="LAmouse">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content=" c&#x2F;c++">
+<meta property="article:tag" content=" 游戏">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="LAmouse的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -46,8 +51,10 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">LAmouse</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">to do</p>
 		
 
 		<nav class="header-menu">
@@ -104,8 +111,10 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">LAmouse</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>to do<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -152,27 +161,33 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-openJDK-在fedora的构建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/04/first-blog/">first blog</a>
+      <a class="article-title" href="/2020/03/01/openJDK-%E5%9C%A8fedora%E7%9A%84%E6%9E%84%E5%BB%BA/">openJDK 在fedora的构建</a>
     </h1>
   
 
         
-        <a href="/2020/02/04/first-blog/" class="archive-article-date">
-  	<time datetime="2020-02-04T09:41:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
+        <a href="/2020/03/01/openJDK-%E5%9C%A8fedora%E7%9A%84%E6%9E%84%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2020-03-01T09:26:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="章节1"><a href="#章节1" class="headerlink" title="章节1"></a>章节1</h2><h2 id="章节2"><a href="#章节2" class="headerlink" title="章节2"></a>章节2</h2>
+        <p>#通过hg下载源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hg clone http:&#x2F;&#x2F;hg.openjdk.java.net&#x2F;jdk&#x2F;jdk11</span><br></pre></td></tr></table></figure>
+
+<p>如果没有openjdk10或者11到openjdk官网下载一个即可<br>如果因为出现编译失败添加参数–disable-warnings-as-errors</p>
+<p>#执行如下脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --with-boot-jdk&#x3D;&quot;openjdk10或者11的安装目录&quot; --disable-warnings-as-errors</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -184,7 +199,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/04/first-blog/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/01/openJDK-%E5%9C%A8fedora%E7%9A%84%E6%9E%84%E5%BB%BA/">展开全文 >></a>
         </p>
       
 
@@ -299,7 +314,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 John Doe
+    		&copy; 2020 LAmouse
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
