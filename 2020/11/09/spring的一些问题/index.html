@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>spring的一些问题 | LAmouse的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果你的Spring boot项目不小心被引入了Spring web，但是没有人需要的时候，这时你需要做一些修改 #方案一：在application.yml Spring配置加入如下信息 123spring:    main:      web-application-type: none  #方案二：修改你的main方法,使用如下写法 123SpringApplication springApp">
+  <meta name="description" content="如果你的Spring boot项目不小心被引入了Spring web，但是没有人需要的时候，这时你需要做一些修改 方案一：在application.yml Spring配置加入如下信息123spring:    main:      web-application-type: none  方案二：修改你的main方法,使用如下写法123SpringApplication springApplica">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring的一些问题">
 <meta property="og:url" content="http://yoursite.com/2020/11/09/spring%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="LAmouse的博客">
-<meta property="og:description" content="如果你的Spring boot项目不小心被引入了Spring web，但是没有人需要的时候，这时你需要做一些修改 #方案一：在application.yml Spring配置加入如下信息 123spring:    main:      web-application-type: none  #方案二：修改你的main方法,使用如下写法 123SpringApplication springApp">
+<meta property="og:description" content="如果你的Spring boot项目不小心被引入了Spring web，但是没有人需要的时候，这时你需要做一些修改 方案一：在application.yml Spring配置加入如下信息123spring:    main:      web-application-type: none  方案二：修改你的main方法,使用如下写法123SpringApplication springApplica">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2020-11-09T07:23:20.000Z">
-<meta property="article:modified_time" content="2020-11-09T07:50:05.180Z">
+<meta property="article:modified_time" content="2020-11-09T08:34:37.825Z">
 <meta property="article:author" content="LAmouse">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content=" c&#x2F;c++">
@@ -182,14 +182,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如果你的Spring boot项目不小心被引入了Spring web，但是没有人需要的时候，这时你需要做一些修改</p>
-<p>#方案一：在application.yml Spring配置加入如下信息</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">    <span class="attr">main:</span></span><br><span class="line">      <span class="attr">web-application-type:</span> <span class="string">none</span></span><br></pre></td></tr></table></figure>
+<h1 id="方案一：在application-yml-Spring配置加入如下信息"><a href="#方案一：在application-yml-Spring配置加入如下信息" class="headerlink" title="方案一：在application.yml Spring配置加入如下信息"></a>方案一：在application.yml Spring配置加入如下信息</h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">    <span class="attr">main:</span></span><br><span class="line">      <span class="attr">web-application-type:</span> <span class="string">none</span></span><br></pre></td></tr></table></figure>
 
-<p>#方案二：修改你的main方法,使用如下写法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication springApplication = <span class="keyword">new</span> SpringApplication(YourMain<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">   springApplication.setWebApplicationType(WebApplicationType.NONE);</span><br><span class="line">   springApplication.run(args);</span><br></pre></td></tr></table></figure>
-<p>#方案三：在maven排除web依赖，但这个方法可能会导致问题</p>
-<p>#记录一些遇到该问题坑的框架</p>
-<ol>
+<h1 id="方案二：修改你的main方法-使用如下写法"><a href="#方案二：修改你的main方法-使用如下写法" class="headerlink" title="方案二：修改你的main方法,使用如下写法"></a>方案二：修改你的main方法,使用如下写法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication springApplication = <span class="keyword">new</span> SpringApplication(YourMain<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">   springApplication.setWebApplicationType(WebApplicationType.NONE);</span><br><span class="line">   springApplication.run(args);</span><br></pre></td></tr></table></figure>
+<h1 id="方案三：在maven排除web依赖，但这个方法可能会导致问题"><a href="#方案三：在maven排除web依赖，但这个方法可能会导致问题" class="headerlink" title="方案三：在maven排除web依赖，但这个方法可能会导致问题"></a>方案三：在maven排除web依赖，但这个方法可能会导致问题</h1><h1 id="记录一些遇到该问题坑的框架"><a href="#记录一些遇到该问题坑的框架" class="headerlink" title="记录一些遇到该问题坑的框架"></a>记录一些遇到该问题坑的框架</h1><ol>
 <li><a href="https://github.com/seata/seata" target="_blank" rel="noopener">一个分布式事务框架 seata</a>,PS:分布式事务这个东西个人很不喜欢，还是在设计的时候避免这个玩意儿吧，太坑，要及时更新代码，别希望靠这玩意儿解决技术债。</li>
 <li>待补充</li>
 </ol>
@@ -315,7 +311,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#方案一：在application-yml-Spring配置加入如下信息"><span class="toc-number">1.</span> <span class="toc-text">方案一：在application.yml Spring配置加入如下信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方案二：修改你的main方法-使用如下写法"><span class="toc-number">2.</span> <span class="toc-text">方案二：修改你的main方法,使用如下写法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方案三：在maven排除web依赖，但这个方法可能会导致问题"><span class="toc-number">3.</span> <span class="toc-text">方案三：在maven排除web依赖，但这个方法可能会导致问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#记录一些遇到该问题坑的框架"><span class="toc-number">4.</span> <span class="toc-text">记录一些遇到该问题坑的框架</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -506,7 +502,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">在卷</div>
   	  	
     	</section>
     
