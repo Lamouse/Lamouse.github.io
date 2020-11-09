@@ -182,14 +182,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如果你的Spring boot项目不小心被引入了Spring web，但是没有人需要的时候，这时你需要做一些修改</p>
-<h1 id="方案一：在application-yml-Spring配置加入如下信息"><a href="#方案一：在application-yml-Spring配置加入如下信息" class="headerlink" title="方案一：在application.yml Spring配置加入如下信息"></a>方案一：在application.yml Spring配置加入如下信息</h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">    <span class="attr">main:</span></span><br><span class="line">      <span class="attr">web-application-type:</span> <span class="string">none</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="方案二：修改你的main方法-使用如下写法"><a href="#方案二：修改你的main方法-使用如下写法" class="headerlink" title="方案二：修改你的main方法,使用如下写法"></a>方案二：修改你的main方法,使用如下写法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication springApplication = <span class="keyword">new</span> SpringApplication(YourMain<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">   springApplication.setWebApplicationType(WebApplicationType.NONE);</span><br><span class="line">   springApplication.run(args);</span><br></pre></td></tr></table></figure>
-<h1 id="方案三：在maven排除web依赖，但这个方法可能会导致问题"><a href="#方案三：在maven排除web依赖，但这个方法可能会导致问题" class="headerlink" title="方案三：在maven排除web依赖，但这个方法可能会导致问题"></a>方案三：在maven排除web依赖，但这个方法可能会导致问题</h1><h1 id="记录一些遇到该问题坑的框架"><a href="#记录一些遇到该问题坑的框架" class="headerlink" title="记录一些遇到该问题坑的框架"></a>记录一些遇到该问题坑的框架</h1><ol>
-<li><a href="https://github.com/seata/seata" target="_blank" rel="noopener">一个分布式事务框架 seata</a>,PS:分布式事务这个东西个人很不喜欢，还是在设计的时候避免这个玩意儿吧，太坑，要及时更新代码，别希望靠这玩意儿解决技术债。</li>
-<li>待补充</li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2020/11/09/spring%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/#more">more >></a>
+        
       
 
       
@@ -252,14 +247,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools.git</span><br><span class="line">cd gperftools</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<h4 id="HEAP-PROFILER"><a href="#HEAP-PROFILER" class="headerlink" title="HEAP PROFILER"></a>HEAP PROFILER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1) Link your executable with -ltcmalloc</span><br><span class="line">2) Run your executable with the HEAPPROFILE environment var set:</span><br><span class="line">     $ export HEAPPROFILE&#x3D;&#x2F;tmp&#x2F;heapprof &lt;path&#x2F;to&#x2F;binary&gt; [binary args]</span><br><span class="line">3) Run pprof to analyze the heap usage</span><br><span class="line">     $ pprof &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;heapprof.0045.heap  # run &#39;ls&#39; to see options</span><br><span class="line">     $ pprof --gv &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;heapprof.0045.heap</span><br></pre></td></tr></table></figure>
-
-<h4 id="CPU-PROFILER"><a href="#CPU-PROFILER" class="headerlink" title="CPU PROFILER"></a>CPU PROFILER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1) Link your executable with -lprofiler</span><br><span class="line">2) Run your executable with the CPUPROFILE environment var set:</span><br><span class="line">     $ export CPUPROFILE&#x3D;&#x2F;tmp&#x2F;prof.out &lt;path&#x2F;to&#x2F;binary&gt; [binary args]</span><br><span class="line">3) Run pprof to analyze the CPU usage</span><br><span class="line">     $ pprof &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;prof.out      # -pg-like text output</span><br><span class="line">     $ pprof --gv &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;prof.out # really cool graphical output</span><br></pre></td></tr></table></figure>
-
-<h4 id="生成PDF文件"><a href="#生成PDF文件" class="headerlink" title="生成PDF文件"></a>生成PDF文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pprof --pdf .&#x2F;executable pprof.out &gt; pprof.pdf</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/09/15/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
       
 
       
@@ -323,11 +313,9 @@
       
         <p>#通过hg下载源代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hg clone http:&#x2F;&#x2F;hg.openjdk.java.net&#x2F;jdk&#x2F;jdk11</span><br></pre></td></tr></table></figure>
-
-<p>如果没有openjdk10或者11到openjdk官网下载一个即可<br>如果因为出现编译失败添加参数–disable-warnings-as-errors</p>
-<p>#执行如下脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --with-boot-jdk&#x3D;&quot;openjdk10或者11的安装目录&quot; --disable-warnings-as-errors</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2020/03/01/openJDK-%E5%9C%A8fedora%E7%9A%84%E6%9E%84%E5%BB%BA/#more">more >></a>
+        
       
 
       
@@ -340,81 +328,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/01/openJDK-%E5%9C%A8fedora%E7%9A%84%E6%9E%84%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-04T09:36:31.944Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/04/hello-world/">展开全文 >></a>
         </p>
       
 
