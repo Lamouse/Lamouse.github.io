@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/11 | LAmouse的博客</title>
+  <title>gperftools的使用 | LAmouse的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正在爬坑">
+  <meta name="description" content="github地址1https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LAmouse的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/11/index.html">
+<meta property="og:title" content="gperftools的使用">
+<meta property="og:url" content="http://yoursite.com/cpp/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8.html">
 <meta property="og:site_name" content="LAmouse的博客">
-<meta property="og:description" content="正在爬坑">
+<meta property="og:description" content="github地址1https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools">
 <meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-09-15T09:27:43.000Z">
+<meta property="article:modified_time" content="2020-11-09T10:53:10.730Z">
 <meta property="article:author" content="LAmouse">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content=" c&#x2F;c++">
@@ -149,49 +151,147 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/09/spring%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-11-09T07:23:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/09/spring%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">spring的一些问题</a>
+    <h1 class="article-title" itemprop="name">
+      gperftools的使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/cpp/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8.html" class="archive-article-date">
+  	<time datetime="2020-09-15T09:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools.git</span><br><span class="line">cd gperftools</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<h4 id="HEAP-PROFILER"><a href="#HEAP-PROFILER" class="headerlink" title="HEAP PROFILER"></a>HEAP PROFILER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1) Link your executable with -ltcmalloc</span><br><span class="line">2) Run your executable with the HEAPPROFILE environment var set:</span><br><span class="line">     $ export HEAPPROFILE&#x3D;&#x2F;tmp&#x2F;heapprof &lt;path&#x2F;to&#x2F;binary&gt; [binary args]</span><br><span class="line">3) Run pprof to analyze the heap usage</span><br><span class="line">     $ pprof &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;heapprof.0045.heap  # run &#39;ls&#39; to see options</span><br><span class="line">     $ pprof --gv &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;heapprof.0045.heap</span><br></pre></td></tr></table></figure>
+
+<h4 id="CPU-PROFILER"><a href="#CPU-PROFILER" class="headerlink" title="CPU PROFILER"></a>CPU PROFILER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1) Link your executable with -lprofiler</span><br><span class="line">2) Run your executable with the CPUPROFILE environment var set:</span><br><span class="line">     $ export CPUPROFILE&#x3D;&#x2F;tmp&#x2F;prof.out &lt;path&#x2F;to&#x2F;binary&gt; [binary args]</span><br><span class="line">3) Run pprof to analyze the CPU usage</span><br><span class="line">     $ pprof &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;prof.out      # -pg-like text output</span><br><span class="line">     $ pprof --gv &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;prof.out # really cool graphical output</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成PDF文件"><a href="#生成PDF文件" class="headerlink" title="生成PDF文件"></a>生成PDF文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pprof --pdf .&#x2F;executable pprof.out &gt; pprof.pdf</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/cpp/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#github地址"><span class="toc-number">1.</span> <span class="toc-text">github地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HEAP-PROFILER"><span class="toc-number">2.</span> <span class="toc-text">HEAP PROFILER</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU-PROFILER"><span class="toc-number">3.</span> <span class="toc-text">CPU PROFILER</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成PDF文件"><span class="toc-number">4.</span> <span class="toc-text">生成PDF文件</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -215,7 +315,7 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
