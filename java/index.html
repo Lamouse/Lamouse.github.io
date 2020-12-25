@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>gperftools的使用 | LAmouse的博客</title>
+  <title>java | LAmouse的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="github地址1https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools">
+  <meta name="description" content="正在爬坑">
 <meta property="og:type" content="website">
-<meta property="og:title" content="gperftools的使用">
-<meta property="og:url" content="http://yoursite.com/cpp/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8.html">
+<meta property="og:title" content="java">
+<meta property="og:url" content="http://yoursite.com/java/index.html">
 <meta property="og:site_name" content="LAmouse的博客">
-<meta property="og:description" content="github地址1https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools">
+<meta property="og:description" content="正在爬坑">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-09-15T09:27:43.000Z">
-<meta property="article:modified_time" content="2020-11-09T10:53:10.730Z">
+<meta property="article:published_time" content="2020-11-09T10:47:25.000Z">
+<meta property="article:modified_time" content="2020-12-25T08:49:45.010Z">
 <meta property="article:author" content="LAmouse">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content=" c&#x2F;c++">
@@ -158,30 +158,20 @@
         
   
     <h1 class="article-title" itemprop="name">
-      gperftools的使用
+      java
     </h1>
   
 
         
-        <a href="/cpp/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8.html" class="archive-article-date">
-  	<time datetime="2020-09-15T09:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
+        <a href="/java/index.html" class="archive-article-date">
+  	<time datetime="2020-11-09T10:47:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;gperftools&#x2F;gperftools.git</span><br><span class="line">cd gperftools</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<h4 id="HEAP-PROFILER"><a href="#HEAP-PROFILER" class="headerlink" title="HEAP PROFILER"></a>HEAP PROFILER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1) Link your executable with -ltcmalloc</span><br><span class="line">2) Run your executable with the HEAPPROFILE environment var set:</span><br><span class="line">     $ export HEAPPROFILE&#x3D;&#x2F;tmp&#x2F;heapprof &lt;path&#x2F;to&#x2F;binary&gt; [binary args]</span><br><span class="line">3) Run pprof to analyze the heap usage</span><br><span class="line">     $ pprof &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;heapprof.0045.heap  # run &#39;ls&#39; to see options</span><br><span class="line">     $ pprof --gv &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;heapprof.0045.heap</span><br></pre></td></tr></table></figure>
-
-<h4 id="CPU-PROFILER"><a href="#CPU-PROFILER" class="headerlink" title="CPU PROFILER"></a>CPU PROFILER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1) Link your executable with -lprofiler</span><br><span class="line">2) Run your executable with the CPUPROFILE environment var set:</span><br><span class="line">     $ export CPUPROFILE&#x3D;&#x2F;tmp&#x2F;prof.out &lt;path&#x2F;to&#x2F;binary&gt; [binary args]</span><br><span class="line">3) Run pprof to analyze the CPU usage</span><br><span class="line">     $ pprof &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;prof.out      # -pg-like text output</span><br><span class="line">     $ pprof --gv &lt;path&#x2F;to&#x2F;binary&gt; &#x2F;tmp&#x2F;prof.out # really cool graphical output</span><br></pre></td></tr></table></figure>
-
-<h4 id="生成PDF文件"><a href="#生成PDF文件" class="headerlink" title="生成PDF文件"></a>生成PDF文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pprof --pdf .&#x2F;executable pprof.out &gt; pprof.pdf</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -239,7 +229,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/cpp/gperftools%E7%9A%84%E4%BD%BF%E7%94%A8.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/java/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,7 +262,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#github地址"><span class="toc-number">1.</span> <span class="toc-text">github地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HEAP-PROFILER"><span class="toc-number">2.</span> <span class="toc-text">HEAP PROFILER</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU-PROFILER"><span class="toc-number">3.</span> <span class="toc-text">CPU PROFILER</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成PDF文件"><span class="toc-number">4.</span> <span class="toc-text">生成PDF文件</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
